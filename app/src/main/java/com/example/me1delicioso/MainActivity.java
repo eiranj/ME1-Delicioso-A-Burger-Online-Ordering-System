@@ -14,81 +14,24 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
+    Button OrderBurger, EditOrder;
 
-    private ListView mListView;
-    int [] images = {R.drawable.railwaycutlet , R.drawable.spicyaloocrunch ,
-            R.drawable.greekfalafel , R.drawable.spinach,
-            R.drawable.paneerdelight, R.drawable.crispybean
-            , R.drawable.ultimatepaneer};
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        mListView = findViewById(R.id.listview);
 
+        OrderBurger = (Button) findViewById(R.id.order);
 
-
-        MyAdapter adapter = new MyAdapter();
-        mListView.setAdapter(adapter);
-        mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        OrderBurger.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                if(position==0){
-
-                    startActivity(new Intent(MainActivity.this,RailwayCutlet.class));
-
-                }else if(position==1){
-
-                    startActivity(new Intent(MainActivity.this,SpicyAlooCrunch.class));
-
-                }else if(position==2){
-
-                    startActivity(new Intent(MainActivity.this,GreekFalafel.class));
-
-                }else if(position==3){
-
-                    startActivity(new Intent(MainActivity.this,SpinachNCorn.class));
-                }else if(position==4){
-
-                    startActivity(new Intent(MainActivity.this,PaneerDelight.class));
-                }else if(position==5){
-
-                    startActivity(new Intent(MainActivity.this,CrispyBean.class));
-
-                }else{
-                    startActivity(new Intent(MainActivity.this,UltimatePaneer.class));
-                }
+            public void onClick(View view) {
+                Intent in = new Intent(MainActivity.this, Order.class);
+                startActivity(in);
             }
         });
-
-    }
-    class MyAdapter extends BaseAdapter {
-
-        @Override
-        public int getCount() {
-            return images.length;
-        }
-
-        @Override
-        public Object getItem(int position) {
-            return null;
-        }
-
-        @Override
-        public long getItemId(int position) {
-            return 0;
-        }
-
-        @Override
-        public View getView(int position, View convertView, ViewGroup parent) {
-            convertView = getLayoutInflater().inflate(R.layout.items ,parent , false);
-            TextView textView = convertView.findViewById(R.id.textview);
-            ImageView imageView = convertView.findViewById(R.id.imageview);
-
-            imageView.setImageResource(images[position]);
-            return  convertView;
-        }
     }
 }
 
