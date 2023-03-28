@@ -31,6 +31,25 @@
             android:layout_height="261dp"
             app:srcCompat="@drawable/spinach" />
 
+        <EditText
+            android:id="@+id/qty"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="350dp"
+            android:layout_marginLeft="60dp"
+            android:ems="10"
+            android:hint="Qty:" />
+
+        <EditText
+            android:id="@+id/name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="400dp"
+            android:layout_marginLeft="60dp"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:hint="Name:" />
+
     </androidx.cardview.widget.CardView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
