@@ -8,85 +8,75 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.BaseAdapter;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
 public class Order extends AppCompatActivity {
+    ImageButton railwaycl, spicyaloo, greekf, spinachncorn, paneerdelight, ultpaneer;
 
-    private ListView mListView;
-    int [] images = {R.drawable.railwaycutlet , R.drawable.spicyaloocrunch ,
-            R.drawable.greekfalafel , R.drawable.spinach,
-            R.drawable.paneerdelight, R.drawable.crispybean
-            , R.drawable.ultimatepaneer};
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_order);
-        mListView = findViewById(R.id.listview);
 
+        railwaycl = findViewById(R.id.railwaycutlet);
+        spicyaloo = findViewById(R.id.spicyaloo);
+        greekf = findViewById(R.id.greekfalafel);
+        spinachncorn = findViewById(R.id.spinachncorn);
+        paneerdelight = findViewById(R.id.paneerdelight);
+        ultpaneer = findViewById(R.id.ultimatepaneer);
 
-
-        MyAdapter adapter = new MyAdapter();
-        mListView.setAdapter(adapter);
-        mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        railwaycl.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                if(position==0){
-
-                    startActivity(new Intent(Order.this,RailwayCutlet.class));
-
-                }else if(position==1){
-
-                    startActivity(new Intent(Order.this,SpicyAlooCrunch.class));
-
-                }else if(position==2){
-
-                    startActivity(new Intent(Order.this,GreekFalafel.class));
-
-                }else if(position==3){
-
-                    startActivity(new Intent(Order.this,SpinachNCorn.class));
-                }else if(position==4){
-
-                    startActivity(new Intent(Order.this,PaneerDelight.class));
-                }else if(position==5){
-
-                    startActivity(new Intent(Order.this,CrispyBean.class));
-
-                }else{
-                    startActivity(new Intent(Order.this,UltimatePaneer.class));
-                }
+            public void onClick(View view) {
+                Intent intent = new Intent(Order.this, Checkout.class);
+                intent.putExtra("value", 1);
+                startActivity(intent);
             }
         });
-
-    }
-    class MyAdapter extends BaseAdapter {
-
-        @Override
-        public int getCount() {
-            return images.length;
-        }
-
-        @Override
-        public Object getItem(int position) {
-            return null;
-        }
-
-        @Override
-        public long getItemId(int position) {
-            return 0;
-        }
-
-        @Override
-        public View getView(int position, View convertView, ViewGroup parent) {
-            convertView = getLayoutInflater().inflate(R.layout.items ,parent , false);
-            TextView textView = convertView.findViewById(R.id.textview);
-            ImageView imageView = convertView.findViewById(R.id.imageview);
-
-            imageView.setImageResource(images[position]);
-            return  convertView;
-        }
+        spicyaloo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(Order.this, Checkout.class);
+                intent.putExtra("value", 2);
+                startActivity(intent);
+            }
+        });
+        greekf.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(Order.this, Checkout.class);
+                intent.putExtra("value", 3);
+                startActivity(intent);
+            }
+        });
+        spinachncorn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(Order.this, Checkout.class);
+                intent.putExtra("value", 4);
+                startActivity(intent);
+            }
+        });
+        paneerdelight.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(Order.this, Checkout.class);
+                intent.putExtra("value", 5);
+                startActivity(intent);
+            }
+        });
+        ultpaneer.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(Order.this, Checkout.class);
+                intent.putExtra("value", 6);
+                startActivity(intent);
+            }
+        });
     }
 }
