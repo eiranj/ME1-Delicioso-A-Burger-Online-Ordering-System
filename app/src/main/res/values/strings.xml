@@ -6,4 +6,10 @@
     <string name="msg4">Edit the records of</string>
     <string name="msg5">Record</string>
     <string name="msg6">Name</string>
+    <string name="railwaycutlet">Railway Cutlet</string>
+    <string name="spicyaloo">Spicy Aloo Crunch</string>
+    <string name="greekf">Greek Falafel</string>
+    <string name="spinachncorn">Spinach N Corn</string>
+    <string name="paneerdelight">Paneer Delight</string>
+    <string name="ultpaneer">Ultimate Paneer</string>
 </resources>

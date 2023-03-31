@@ -15,6 +15,8 @@ import android.widget.TextView;
 
 public class Order extends AppCompatActivity {
     ImageButton railwaycl, spicyaloo, greekf, spinachncorn, paneerdelight, ultpaneer;
+    String burgname, railwaycutlet, spicyaloocrunch,greekfalafel,spinachcorn,paneerd,ultimatepaneer;
+
 
 
 
@@ -30,10 +32,19 @@ public class Order extends AppCompatActivity {
         paneerdelight = findViewById(R.id.paneerdelight);
         ultpaneer = findViewById(R.id.ultimatepaneer);
 
+        railwaycutlet = getString(R.string.railwaycutlet);
+        spicyaloocrunch = getString(R.string.spicyaloo);
+        greekfalafel = getString(R.string.greekf);
+        spinachcorn = getString(R.string.spinachncorn);
+        paneerd = getString(R.string.paneerdelight);
+        ultimatepaneer = getString(R.string.ultpaneer);
+
         railwaycl.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                burgname = railwaycutlet;
                 Intent intent = new Intent(Order.this, Checkout.class);
+                intent.putExtra("burger", burgname);
                 intent.putExtra("value", 1);
                 startActivity(intent);
             }
@@ -41,7 +52,9 @@ public class Order extends AppCompatActivity {
         spicyaloo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                burgname = spicyaloocrunch;
                 Intent intent = new Intent(Order.this, Checkout.class);
+                intent.putExtra("burger", burgname);
                 intent.putExtra("value", 2);
                 startActivity(intent);
             }
@@ -49,7 +62,9 @@ public class Order extends AppCompatActivity {
         greekf.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                burgname = greekfalafel;
                 Intent intent = new Intent(Order.this, Checkout.class);
+                intent.putExtra("burger", burgname);
                 intent.putExtra("value", 3);
                 startActivity(intent);
             }
@@ -57,7 +72,9 @@ public class Order extends AppCompatActivity {
         spinachncorn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                burgname = spinachcorn;
                 Intent intent = new Intent(Order.this, Checkout.class);
+                intent.putExtra("burger", burgname);
                 intent.putExtra("value", 4);
                 startActivity(intent);
             }
@@ -65,7 +82,9 @@ public class Order extends AppCompatActivity {
         paneerdelight.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                burgname = paneerd;
                 Intent intent = new Intent(Order.this, Checkout.class);
+                intent.putExtra("burger", burgname);
                 intent.putExtra("value", 5);
                 startActivity(intent);
             }
@@ -73,7 +92,9 @@ public class Order extends AppCompatActivity {
         ultpaneer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                burgname = ultimatepaneer;
                 Intent intent = new Intent(Order.this, Checkout.class);
+                intent.putExtra("burger", burgname);
                 intent.putExtra("value", 6);
                 startActivity(intent);
             }
