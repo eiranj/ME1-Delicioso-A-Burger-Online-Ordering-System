@@ -42,7 +42,9 @@ public class Checkout extends AppCompatActivity {
         checkout = findViewById(R.id.checkout);
         burgimg = findViewById(R.id.burgimg);
         Intent intent = getIntent();
+        burger = intent.getStringExtra("burger");
         int value = intent.getIntExtra("value", 0);
+
 
 
         switch (value) {

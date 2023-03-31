@@ -236,5 +236,47 @@
 
     </GridLayout>
 
+    <TextView
+        android:id="@+id/railwaycltxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Railway Cutlet"
+        android:textColor="#8BC34A" />
+
+    <TextView
+        android:id="@+id/spicyalootxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Spicy Aloo Crunch<"
+        android:textColor="#8BC34A"/>
+
+    <TextView
+        android:id="@+id/greekftxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Greek Falafel"
+        android:textColor="#8BC34A"/>
+
+    <TextView
+        android:id="@+id/spinachncorntxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Spinach N Corn"
+        android:textColor="#8BC34A"/>
+
+    <TextView
+        android:id="@+id/paneerdtxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Paneer Delight"
+        android:textColor="#8BC34A"/>
+
+    <TextView
+        android:id="@+id/ultpaneertxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Ultimate Paneer"
+        android:textColor="#8BC34A"/>
+
 
 </RelativeLayout>
