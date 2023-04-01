@@ -247,7 +247,7 @@
         android:id="@+id/spicyalootxt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Spicy Aloo Crunch<"
+        android:text="Spicy Aloo Crunch"
         android:textColor="#8BC34A"/>
 
     <TextView

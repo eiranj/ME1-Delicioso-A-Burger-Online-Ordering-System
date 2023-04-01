@@ -35,13 +35,14 @@
             android:id="@+id/qty"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="350dp"
             android:layout_marginLeft="60dp"
+            android:layout_marginTop="350dp"
             android:ems="10"
-            android:hint="Qty:" />
+            android:hint="Qty:"
+            android:inputType="number" />
 
         <EditText
-            android:id="@+id/name"
+            android:id="@+id/fname"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="400dp"

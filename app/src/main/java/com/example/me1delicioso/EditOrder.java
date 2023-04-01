@@ -24,7 +24,7 @@ public class EditOrder extends AppCompatActivity {
     private static TextView tv_civ;
     private static String cItemcode = "";
     private static JSONParser jParser = new JSONParser();
-    private static String urlHost = "https://5e00-49-145-173-94.ngrok.io/burgerdatabase/UpdateQty.php";
+    private static String urlHost = "http://192.168.0.107/burger/UpdateQty.php";
     private static String TAG_MESSAGE = "message", TAG_SUCCESS = "success";
     private static String online_dataset = "";
 
@@ -88,10 +88,10 @@ public class EditOrder extends AppCompatActivity {
             try {
                 ContentValues cv = new ContentValues();
                 cPostSQL = aydi;
-                cv.put("id", cPostSQL);
+                cv.put("OrderNum", cPostSQL);
 
                 cPostSQL = " '" + Name + "' ";
-                cv.put("fullname", cPostSQL);
+                cv.put("Name", cPostSQL);
 
                 cPostSQL = " '" + Burger + "' ";
                 cv.put("burger", cPostSQL);

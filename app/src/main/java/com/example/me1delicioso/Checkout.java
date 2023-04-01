@@ -23,28 +23,27 @@ import java.util.Calendar;
 public class Checkout extends AppCompatActivity {
 
     private static JSONParser jParser = new JSONParser();
-    private static String urlHost = "https://b47a-49-145-173-94.ngrok.io/burgerdatabase/insert.php";
+    private static String urlHost = "http://192.168.0.107/burger/insert.php";
     private static String TAG_MESSAGE = "message" , TAG_SUCCESS = "success";
     private static String online_dataset = "";
     Button checkout;
     TextView  name;
     EditText qty;
     ImageView burgimg;
-    String fullname, burger, month, day, year, quantity;
+    String Name, burger, month, day, year, quantity;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_checkout);
         Calendar date = Calendar.getInstance();
-        name = findViewById(R.id.name);
+        name = findViewById(R.id.fname);
         qty = findViewById(R.id.qty);
         checkout = findViewById(R.id.checkout);
         burgimg = findViewById(R.id.burgimg);
         Intent intent = getIntent();
         burger = intent.getStringExtra("burger");
         int value = intent.getIntExtra("value", 0);
-
 
 
         switch (value) {
@@ -72,9 +71,17 @@ public class Checkout extends AppCompatActivity {
         checkout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                fullname = name.getText().toString();
-                month = String.valueOf(date.get(Calendar.MONTH) + 1);
-                day = String.valueOf(date.get(Calendar.DAY_OF_MONTH) + 1);
+                Name = name.getText().toString();
+                if ((date.get(Calendar.MONTH) + 1) < 10) {
+                    month = "0" + String.valueOf(date.get(Calendar.MONTH) + 1);
+                } else {
+                    month = String.valueOf(date.get(Calendar.MONTH) + 1);
+                }
+                if ((date.get(Calendar.DAY_OF_MONTH)) < 10) {
+                    day = "0" + String.valueOf(date.get(Calendar.DAY_OF_MONTH));
+                } else {
+                    day = String.valueOf(date.get(Calendar.DAY_OF_MONTH));
+                }
                 year = String.valueOf(date.get(Calendar.YEAR));
                 quantity = qty.getText().toString();
                 if (quantity.equals("")) {
@@ -107,7 +114,7 @@ public class Checkout extends AppCompatActivity {
             int nSuccess;
             try {
                 ContentValues cv = new ContentValues();
-                cPostSQL = " '" + fullname + "' , '" + burger + "' , '" + quantity + "' , '" + day + "' , '" + month + "' , '" + year + "'  ";
+                cPostSQL = " '" + Name + "' , '" + burger + "' , '" + quantity + "' , '" + day + "' , '" + month + "' , '" + year + "'  ";
                 cv.put("code", cPostSQL);
 
                 JSONObject json = jParser.makeHTTPRequest(urlHost, "POST", cv);

@@ -30,13 +30,13 @@ public class Manage extends AppCompatActivity {
     private static Button btnQuery;
 
     TextView textView, txtDefault, txtDefault_burg, txtDefault_qty, txtDefault_ID;
-    private static EditText fullname;
+    private static EditText fname;
     private static JSONParser jsonParser = new JSONParser();
-    private static String urlHostName = "https://5e00-49-145-173-94.ngrok.io/burgerdatabase/SelectItemDetails.php";
-    private static String urlHostDelete = "https://5e00-49-145-173-94.ngrok.io/burgerdatabase/delete.php";
-    private static String urlHostBurger = "https://5e00-49-145-173-94.ngrok.io/burgerdatabase/selectBurger.php";
-    private static String urlHostQty = "https://5e00-49-145-173-94.ngrok.io/burgerdatabase/selectQty.php";
-    private static String urlHostID = "https://5e00-49-145-173-94.ngrok.io/burgerdatabase/selectid.php";
+    private static String urlHostName = "http://192.168.0.107/burger//SelectItemDetails.php";
+    private static String urlHostDelete = "http://192.168.0.107/burger//delete.php";
+    private static String urlHostBurger = "http://192.168.0.107/burger//selectBurger.php";
+    private static String urlHostQty = "http://192.168.0.107/burger//selectQty.php";
+    private static String urlHostID = "http://192.168.0.107/burger//selectid.php";
     private static String TAG_MESSAGE = "message", TAG_SUCCESS = "success";
     private static String online_dataset = "";
     private static String cItemcode = "";
@@ -65,7 +65,7 @@ public class Manage extends AppCompatActivity {
         setContentView(R.layout.activity_manage);
 
         btnQuery = (Button) findViewById(R.id.btnSearch);
-        fullname = (EditText) findViewById(R.id.fullname);
+        fname = (EditText) findViewById(R.id.fullname);
         txtDefault = (TextView) findViewById(R.id.tv_default);
         listView = (ListView) findViewById(R.id.listview);
         textView = (TextView) findViewById(R.id.textView4);
@@ -82,7 +82,7 @@ public class Manage extends AppCompatActivity {
         btnQuery.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                cItemcode = fullname.getText().toString();
+                cItemcode = fname.getText().toString();
                 new uploadDataToURL().execute();
                 new Burg().execute();
                 new Qty().execute();
@@ -424,7 +424,7 @@ public class Manage extends AppCompatActivity {
             try {
                 ContentValues cv = new ContentValues();
                 cPostSQL = cItemSelected_ID;
-                cv.put("id", cPostSQL);
+                cv.put("OrderNum", cPostSQL);
                 JSONObject json = jsonParser.makeHTTPRequest(urlHostDelete, "POST", cv);
                 if (json != null) {
                     nSuccess = json.getInt(TAG_SUCCESS);
@@ -450,7 +450,9 @@ public class Manage extends AppCompatActivity {
             String isEmpty = "";
             android.app.AlertDialog.Builder alert = new AlertDialog.Builder(Manage.this);
             if (aydi != null) {
-                if (isEmpty.equals("") && !del.equals("HTTPSERVER_ERROR")) { }
+                if (isEmpty.equals("") && !del.equals("HTTPSERVER_ERROR")) {
+
+                }
                 Toast.makeText(Manage.this, "Data Deleted", Toast.LENGTH_SHORT);
             } else {
                 alert.setMessage("Query Interrupted... \nPlease Check Internet Connection");

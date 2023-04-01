@@ -16,7 +16,7 @@ import android.widget.TextView;
 public class Order extends AppCompatActivity {
     ImageButton railwaycl, spicyaloo, greekf, spinachncorn, paneerdelight, ultpaneer;
     String burgname;
-    TextView railwaycutlet, spicyaloocrunch,greekfalafel,spinachcorn,paneerd,ultimatepaneer;
+    String railwaycutlet, spicyaloocrunch,greekfalafel,spinachcorn,paneerd,ultimatepaneer;
 
 
 
@@ -32,17 +32,17 @@ public class Order extends AppCompatActivity {
         paneerdelight = findViewById(R.id.paneerdelight);
         ultpaneer = findViewById(R.id.ultimatepaneer);
 
-        railwaycutlet = findViewById(R.id.railwaycltxt);
-        spicyaloocrunch = findViewById(R.id.spicyalootxt);
-        greekfalafel = findViewById(R.id.greekftxt);
-        spinachcorn = findViewById(R.id.spinachncorntxt);
-        paneerd = findViewById(R.id.paneerdtxt);
-        ultimatepaneer = findViewById(R.id.ultpaneertxt);
+        railwaycutlet = getResources().getString(R.string.railwaycutlet);
+        spicyaloocrunch = getResources().getString(R.string.spicyaloo);
+        greekfalafel = getResources().getString(R.string.greekf);
+        spinachcorn = getResources().getString(R.string.spinachncorn);
+        paneerd = getResources().getString(R.string.paneerdelight);
+        ultimatepaneer = getResources().getString(R.string.ultpaneer);
 
         railwaycl.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                burgname = railwaycutlet.getText().toString();
+                burgname = railwaycutlet;
                 Intent intent = new Intent(Order.this, Checkout.class);
                 intent.putExtra("burger", burgname);
                 intent.putExtra("value", 1);
@@ -52,7 +52,7 @@ public class Order extends AppCompatActivity {
         spicyaloo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                burgname = spicyaloocrunch.getText().toString();
+                burgname = spicyaloocrunch;
                 Intent intent = new Intent(Order.this, Checkout.class);
                 intent.putExtra("burger", burgname);
                 intent.putExtra("value", 2);
@@ -62,7 +62,7 @@ public class Order extends AppCompatActivity {
         greekf.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                burgname = greekfalafel.getText().toString();
+                burgname = greekfalafel;
                 Intent intent = new Intent(Order.this, Checkout.class);
                 intent.putExtra("burger", burgname);
                 intent.putExtra("value", 3);
@@ -72,7 +72,7 @@ public class Order extends AppCompatActivity {
         spinachncorn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                burgname = spinachcorn.getText().toString();
+                burgname = spinachcorn;
                 Intent intent = new Intent(Order.this, Checkout.class);
                 intent.putExtra("burger", burgname);
                 intent.putExtra("value", 4);
@@ -82,7 +82,7 @@ public class Order extends AppCompatActivity {
         paneerdelight.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                burgname = paneerd.getText().toString();
+                burgname = paneerd;
                 Intent intent = new Intent(Order.this, Checkout.class);
                 intent.putExtra("burger", burgname);
                 intent.putExtra("value", 5);
@@ -92,7 +92,7 @@ public class Order extends AppCompatActivity {
         ultpaneer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                burgname = ultimatepaneer.getText().toString();
+                burgname = ultimatepaneer;
                 Intent intent = new Intent(Order.this, Checkout.class);
                 intent.putExtra("burger", burgname);
                 intent.putExtra("value", 6);
